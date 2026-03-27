@@ -9,7 +9,7 @@ from .models import Ticket
 
 # Configuración personalizada para mostrar y filtrar tickets en el admin
 @admin.register(Ticket)
-class TicketAdmin(admin.ModelAdmin):
+class TicketAdmin(admin.ModelAdmin):  # type: ignore
     list_display = ('id', 'titulo', 'estado', 'creado_por', 'asignado_a', 'fecha_creacion')  # Columnas visibles
     list_filter = ('estado', 'creado_por', 'asignado_a')  # Filtros laterales
     search_fields = ('titulo', 'descripcion')  # Búsqueda por título o descripción

@@ -10,15 +10,15 @@ from rest_framework import serializers
 from .models import Ticket
 from django.contrib.auth.models import User
 
-class UsuarioSerializer(serializers.ModelSerializer):
-    class Meta:
+class UsuarioSerializer(serializers.ModelSerializer):  # type: ignore
+    class Meta:  # type: ignore
         model = User
         fields = ['id', 'username', 'email']
 
-class TicketSerializer(serializers.ModelSerializer):
+class TicketSerializer(serializers.ModelSerializer):  # type: ignore
     creado_por = UsuarioSerializer(read_only=True)
     asignado_a = UsuarioSerializer(read_only=True)
 
-    class Meta:
+    class Meta:  # type: ignore
         model = Ticket
         fields = '__all__'
